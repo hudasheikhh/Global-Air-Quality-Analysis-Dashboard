@@ -1,4 +1,4 @@
-## Global Air Quality Analysis
+## 🌍 Global Air Quality Analysis
 
 ## Overview
 
