@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Pollution Story</title>
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-bar">
+    <h1>Global Air Pollution Data Story</h1>
+    <div class="filters">
+        <div class="filter-item">
+        <span class="label">Country:</span>
+        <select id="countryFilter"></select>
+        </div>
+        <div class="filter-item">
+        <span class="label">Year:</span>
+        <select id="yearFilter"></select>
+        </div>
+    </div>
+    </div>
+
+    <!-- MAP SECTION -->
+    <section class="section fade-in" id="viz1">
+    <div class="section-container">
+        <div class="layout">
+        <div class="text">
+            <h2>Global Pollution Map</h2>
+        </div>
+        <div id="map" class="chart"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- DUAL AXIS CHART SECTION -->
+    <section class="section fade-in" id="viz2">
+    <div class="section-container">
+        <div class="layout reverse">
+        <div class="text">
+            <h2 id="dualTitle">Climate vs Pollution</h2>
+        </div>
+        <div id="dual" class="chart"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- SPAN CHART SECTION -->
+    <section class="section fade-in" id="viz3">
+    <div class="section-container">
+        <div class="layout">
+        <div class="text">
+            <h2>Pollution Variability Across Countries</h2>
+        </div>
+        <div id="span" class="chart"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- GROUPED BAR CHART SECTION -->
+    <section class="section fade-in" id="viz4">
+    <div class="section-container">
+        <div class="layout reverse">
+        <!-- LEFT SIDE -->
+        <div class="text">
+            <h2>Multi-Pollutant Composition</h2>
+            <!-- FILTER BUTTONS -->
+            <div class="group-filters">
+            <button data-var="all" class="active">All</button>
+            <button data-var="pm10">PM10</button>
+            <button data-var="no2">NO₂</button>
+            <button data-var="so2">SO₂</button>
+            <button data-var="co">CO</button>
+            <button data-var="o3">O₃</button>
+            </div>
+        </div>
+        <!-- RIGHT SIDE (SCROLLABLE CHART) -->
+        <div id="group-wrapper">
+            <div id="group" class="chart"></div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- BUBBLE CHART SECTION -->
+    <section class="section fade-in" id="viz5">
+    <div class="section-container">
+        <div class="layout"> 
+        <div class="text">
+            <h2>HDI vs PM2.5 with Health Impact</h2>
+        </div>
+        <div id="bubble" class="chart"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- HEXBIN -->
+    <section class="section fade-in">
+    <div class="section-container">
+         <div class="layout reverse">
+         <div class="text"><h2>Pollution vs Health Density</h2></div>
+         <div id="hexbin" class="chart"></div>
+         </div>
+    </div>
+    </section>
+
+    <!-- PARALLEL -->
+    <section class="section fade-in">
+    <div class="section-container">
+         <div class="layout">
+         <div class="text"><h2>Multivariate Comparison </h2></div>
+        <div id="parallel" class="chart"></div>
+        </div>
+    </div>
+    </section>
+
+    <!-- FINAL INSIGHTS -->
+    <section class="section" id="insights">
+    <div class="insights-container">
+        <h2>Key Air Pollution Insights</h2>
+        <p class="insight-subtitle">
+        These insights summarize key findings from the multi-dimensional analysis of global air pollution.
+        </p>
+        <div class="insights-grid">
+        <div class="insight-box">
+            <h3>🌍 Global Pollution Map</h3>
+            <p>Air pollution is unevenly distributed globally, with clear hotspots indicating high environmental stress.</p>
+        </div>
+        <div class="insight-box">
+            <h3>📈 Climate vs Pollution</h3>
+            <p>Pollution levels tend to rise alongside temperature anomalies, showing strong climate interaction.</p>
+        </div>
+        <div class="insight-box">
+            <h3>📉 Pollution Variability</h3>
+            <p>Some countries show stable pollution levels, while others experience large fluctuations.</p>
+        </div>
+        <div class="insight-box">
+            <h3>🌫 Multi-Pollutant Composition</h3>
+            <p>Different pollutants dominate across regions, requiring targeted control strategies.</p>
+        </div>
+        <div class="insight-box">
+            <h3>🧊 HDI vs PM2.5 with Health Impact</h3>
+            <p>Higher PM2.5 levels strongly correlate with increased respiratory disease rates.</p>
+        </div>
+        <div class="insight-box">
+            <h3>💰 Pollution vs Health Density</h3>
+            <p>Lower GDP and HDI countries face greater pollution-related health impacts.</p>
+        </div>
+        <div class="insight-box">
+            <h3>🧬 Multivariate Analysis</h3>
+            <p>Environmental, economic, and health factors interact in complex ways.</p>
+        </div>
+        </div>
+    </div>
+    </section>
+
+<!-- JS -->
+<script src="scripts/map.js"></script>
+<script>
+    function reveal() {
+    const elements = document.querySelectorAll('.fade-in');
+
+    elements.forEach(el => {
+        const position = el.getBoundingClientRect().top;
+        const screenHeight = window.innerHeight;
+
+        if (position < screenHeight - 100) {
+        el.classList.add('show');
+        }
+    });
+    }
+
+    // Use the function
+    window.addEventListener('scroll', reveal);
+    window.addEventListener('load', reveal);
+</script>
+<script src="https://cdn.jsdelivr.net/npm/d3-hexbin@0.2.2/build/d3-hexbin.min.js"></script>
+<script src="scripts/dual.js"></script>
+<script src="scripts/span.js"></script>
+<script src="scripts/group.js"></script>
+<script src="scripts/bubble.js"></script>
+<script src="scripts/hexbin.js"></script>
+<script src="scripts/parallel.js"></script>
+<script src="scripts/main.js"></script>
+<div id="tooltip"></div>
+
+</body>
+</html>

@@ -1,94 +1,165 @@
-# 🌍 Global-Air-Quality-Analysis-Dashboard
+## Global Air Quality Analysis
 
-This project explores the relationship between air pollution, climate conditions, socioeconomic development, and public health outcomes through an interactive data visualization dashboard. By integrating multiple global datasets, the project uncovers environmental health patterns and highlights how pollution impacts populations across different countries and economic conditions.
+## Overview
 
-# Project Overview
+This project presents an **interactive data visualization dashboard** that explores how **air pollution, climate conditions, and socioeconomic factors** influence **public health across countries over time (2019-2021)**.
 
-This project aims to:
+The central question guiding this work is:
 
-* Analyze global air pollution patterns and trends.
-* Explore the relationship between climate conditions and pollution levels.
-* Assess the impact of air quality on public health outcomes.
-* Compare countries across different socioeconomic conditions.
-* Identify environmental health inequalities through interactive visualizations.
-* Communicate insights using data storytelling and visual analytics.
+> **How does air pollution interact with climate and socioeconomic conditions to impact health outcomes globally?**
 
-# Datasets Used
+The project combines multiple datasets and transforms them into a cohesive **data storytelling experience using D3.js**.
 
-This project combines three complementary datasets to provide a multidimensional view of environmental health.
+---
 
-### Global Air Quality & Environmental Indicators
+## Data Description
 
-Includes:
+This project integrates **three major datasets** to provide a multidimensional perspective:
 
-* CO₂ emissions
-* Human Development Index (HDI)
-* Life expectancy
-* Income indicators
+### 1. Global Air Quality & Environmental Indicators
 
-### Climate & Health Impact Dataset
+* Covers long-term trends
+* Includes:
 
-Includes:
+  * CO₂ emissions
+  * Human Development Index (HDI)
+  * Life expectancy
+  * Income indicators
 
-* PM2.5 concentrations
-* Air Quality Index (AQI)
-* Temperature trends and climate anomalies
-* Respiratory and cardiovascular health indicators
-* Extreme weather events
+Helps explain **development vs environmental impact**
 
-### Socioeconomic Development Dataset
+---
 
-Includes:
+### 2. Climate–Health Impact Dataset
 
-* GDP per capita
-* HDI
-* Life expectancy
-* Development and economic indicators
+* High-frequency (weekly) data across multiple countries
+* Includes:
 
-Together, these datasets enable analysis of how environmental, climate, and socioeconomic factors interact to influence health outcomes globally.
+  * Temperature & climate anomalies
+  * PM2.5 and AQI
+  * Respiratory and cardiovascular health data
+  * Extreme weather indicators
 
-# Visualizations Implemented
+Used to analyze **pollution + climate → health effects**
 
-| Visualization                            | Purpose                                                                           |
-| ---------------------------------------- | --------------------------------------------------------------------------------- |
-| **Global Pollution Map**                 | Displays PM2.5 levels across countries                                            |
-| **Climate vs Pollution Analysis**        | Compares temperature trends with pollution levels                                 |
-| **Pollution Variability Chart**          | Examines pollution fluctuations across countries                                  |
-| **Multi-Pollutant Composition Analysis** | Compares PM10, NO₂, SO₂, CO, and O₃                                               |
-| **HDI vs PM2.5 Bubble Chart**            | Explores development and pollution relationships                                  |
-| **Pollution vs Health Hexbin Plot**      | Visualizes pollution impact on respiratory diseases                               |
-| **Parallel Coordinates Plot**            | Enables multivariate comparison across environmental and socioeconomic indicators |
+---
 
-# Key Findings
+### 3. Socioeconomic Development Dataset
 
-* Higher PM2.5 levels are associated with increased respiratory health risks.
-* Climate anomalies can intensify the effects of air pollution.
-* Countries with lower GDP and healthcare resources often face greater environmental health challenges.
-* Air pollution is both an environmental and public health inequality issue.
-* Socioeconomic conditions play a significant role in pollution vulnerability and health outcomes.
+* Covers global development indicators across decades
+* Includes:
 
-# Technologies Used
+  * GDP per capita
+  * HDI
+  * Life expectancy
 
-* D3.js (v7)
-* JavaScript (ES6)
-* Python
-* HTML5
-* CSS3
-* Data Visualization & Storytelling Techniques
+Explains **why some countries are more vulnerable than others**
+
+---
+
+## Key Objectives
+
+* Analyze **global pollution patterns**
+* Understand **climate–pollution interactions**
+* Study **health impacts of air quality**
+* Compare **countries across economic conditions**
+* Identify **inequality in environmental health risks**
+
+---
+
+## Visualizations
+
+The dashboard includes multiple interactive visualizations:
+
+### Global Pollution Map
+
+* Displays PM2.5 levels across countries
+* Highlights geographic pollution patterns
+
+---
+
+### Climate vs Pollution (Dual Axis Chart)
+
+* Compares **temperature trends vs PM2.5 levels**
+* Shows temporal relationships
+
+---
+
+### Pollution Variability Across Countries
+
+* Displays **min–max pollution ranges**
+* Helps compare stability vs fluctuation
+
+---
+
+### Multi-Pollutant Composition
+
+* Compares pollutants like:
+
+  * PM10
+  * NO₂
+  * SO₂
+  * CO
+  * O₃
+
+---
+
+### HDI vs PM2.5 Bubble Chart
+
+* Shows relationship between:
+
+  * Development (HDI)
+  * Pollution levels
+  * Health impact
+
+---
+
+### Pollution vs Health (Hexbin Plot)
+
+* Shows **density of pollution vs respiratory disease**
+* Reveals clusters of high-risk regions
+
+---
+
+### Parallel Coordinates Plot
+
+* Multivariate comparison across:
+
+  * PM2.5
+  * Temperature
+  * AQI
+  * GDP
+* Allows interactive exploration of relationships
+
+---
+
+## Key Insights
+
+* Higher **PM2.5 levels** correlate strongly with increased **respiratory diseases**
+* Climate conditions (heat, anomalies) **intensify pollution effects**
+* Countries with lower **GDP and healthcare access** face higher risk
+* Air pollution is not just environmental — it's a **public health inequality issue**
+
+---
+
+## Tech Stack
+
+* **D3.js (v7)** – Interactive visualizations
+* **JavaScript (ES6)** – Logic & interactivity
+* **HTML5** – Structure
+* **CSS3** – Styling
+* **Python** – Data preprocessing
+
+---
 
 ## How to Run
-
-1. Clone or download the repository.
-2. Open the project folder in **Visual Studio Code**.
-3. Install the **Live Server** extension if not already installed.
-4. Right-click on `index.html`.
-5. Select **Open with Live Server**.
-
-The application will launch automatically in your default web browser.
-
+Open directly:
+```bash
+index.html
+Right Click → Open with Live Server
+```
 ### Project Structure
-
-```text
+```bash
 ├── index.html
 ├── styles/
 │   └── main.css
@@ -109,4 +180,3 @@ The application will launch automatically in your default web browser.
 ├── EDA & Key Insights.ipynb
 └── README.md
 ```
-
